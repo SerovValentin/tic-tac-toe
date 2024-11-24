@@ -1,0 +1,20 @@
+.field {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 225px;
+  height: 220px;
+}
+
+.cell {
+  width: 75px;
+  height: 75px;
+  background-color: aquamarine;
+  color: crimson;
+  padding: 0;
+  gap: 1px;
+}
+
+.cell:hover {
+  background-color: aqua;
+}
