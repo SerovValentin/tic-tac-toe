@@ -4,24 +4,12 @@ import PropTypes from "prop-types";
 
 export const AppLayout = ({
   currentPlayer,
-  setCurrentPlayer,
   isGameEnded,
-  setIsGameEnded,
   isDraw,
-  setIsDraw,
   field,
-  setField,
+  resetHandler,
+  markingHandler,
 }) => {
-  const resetHandler = () => {
-    let isReset = confirm("Are you sure?");
-    if (isReset) {
-      setCurrentPlayer("X");
-      setIsGameEnded(false);
-      setIsDraw(false);
-      setField(["", "", "", "", "", "", "", "", ""]);
-    }
-  };
-
   return (
     <div>
       <Information
@@ -29,16 +17,7 @@ export const AppLayout = ({
         isGameEnded={isGameEnded}
         isDraw={isDraw}
       />
-      <Field
-        currentPlayer={currentPlayer}
-        setCurrentPlayer={setCurrentPlayer}
-        isGameEnded={isGameEnded}
-        setIsGameEnded={setIsGameEnded}
-        isDraw={isDraw}
-        setIsDraw={setIsDraw}
-        field={field}
-        setField={setField}
-      />
+      <Field field={field} markingHandler={markingHandler} />
       <button className="resetBtn" onClick={resetHandler}>
         Reset Game
       </button>
@@ -48,11 +27,9 @@ export const AppLayout = ({
 
 AppLayout.propTypes = {
   currentPlayer: PropTypes.string,
-  setCurrentPlayer: PropTypes.func,
   isGameEnded: PropTypes.bool,
-  setIsGameEnded: PropTypes.func,
   isDraw: PropTypes.bool,
-  setIsDraw: PropTypes.func,
   field: PropTypes.array,
-  setField: PropTypes.func,
+  markingHandler: PropTypes.func,
+  resetHandler: PropTypes.func,
 };
